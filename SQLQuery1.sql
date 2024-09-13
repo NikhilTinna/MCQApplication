@@ -1,0 +1,1 @@
+﻿insert into fyit values("what is the colour of sky","blue","green","yellow","red","blue")

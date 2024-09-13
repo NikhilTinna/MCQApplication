@@ -1,0 +1,27 @@
+﻿@model User
+<form class="mt-5 border p-5 rounded w-50 m-auto" method="post">
+
+    <div class="mb-3">
+        <label asp-for="Username" class="form-label">Username</label>
+        <input asp-for="Username" type="text" class="form-control" placeholder="Enter Username">
+        @if (TempData["NoUser"] != null)
+        {
+            <span class="text-danger">@TempData["NoUser"]</span>
+        }
+    </div>
+    <div class="mb-3">
+        <label asp-for="Password" class="form-label">Password</label>
+        <input asp-for="Password" type="password" class="form-control border" placeholder="Enter Password">
+        @if (TempData["IncorrectPassword"] != null)
+        {
+            <span class="text-danger">@TempData["IncorrectPassword"]</span>
+        }
+    </div>
+    <div class="text-end">
+        <input type="submit" class='btn btn-primary mt-2' value="Login" />
+    </div>
+    <div class="text-center pt-3">
+        <h6 class="text-center text-secondary">Don't have an account?</h6>
+        <a asp-controller="Auth" asp-action="SignUp">Sign up</a>
+    </div>
+</form>

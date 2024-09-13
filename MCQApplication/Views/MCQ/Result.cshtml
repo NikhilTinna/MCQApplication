@@ -1,0 +1,18 @@
+﻿@using MCQApplication.Models;
+<h2>Correct:</h2>
+@foreach (var item in Marks.fyitCorrect)
+{
+		<h3 class="text-success">@item</h3>
+}
+<h2>Wrong:</h2>
+@foreach (var item in Marks.fyitWrong)
+{
+		<h3 class="text-danger">@item</h3>
+}
+<br />
+<br />
+<br />
+<br />
+<h1>Total: @(Marks.fyitCorrect.Count * 10) marks</h1>
+
+<a asp-controller="Feedback" asp-action="Index">FeedBack</a>

@@ -1,0 +1,25 @@
+﻿@model User
+<form class="mt-5 border p-5 rounded w-50 m-auto" method="post">
+    <div class="mb-3">
+        <label asp-for="Username" class="form-label">Username</label>
+        <input asp-for="Username" type="text" class="form-control" placeholder="Enter Username">
+        @if (TempData["UserAlreadyExists"] != null)
+        {
+            <span class="text-danger">@TempData["UserAlreadyExists"]</span>
+        }
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Password" class="form-label">Password</label>
+        <input asp-for="Password" type="password" class="form-control" placeholder="Enter Password">
+        <span asp-validation-for="Password" class="text-danger"></span>
+
+    </div>
+    <div class="text-end">
+        <input type="submit" class='btn btn-primary mt-2' value="Create" />
+    </div>
+    <div class="text-center pt-3">
+        <h6 class="text-center text-secondary">Already have an account?</h6>
+        <a asp-controller="Auth" asp-action="Login">Sign in</a>
+    </div>
+</form>

@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Syit>;
+@{
+	string[] names = { "Q1", "Q2", "Q3", "Q4", "Q5" };
+	int index = 0;
+}
+@using (Html.BeginForm("Syit", "MCQ", FormMethod.Post))
+{
+	foreach (var item in Model)
+	{
+				<div class="form-check" style="border: 1px solid #ffffff;border-radius: 5px;padding: 50px;margin-bottom: 30px;box-shadow: 0 0 15px #aaa;">
+					<h3 class="form-check-label" style="margin-bottom: 30px">@(index + 1). @item.Question</h3>
+			@Html.RadioButton(names[index], "A", new { @class = "form-check-input"}) <h6>@item.OptionA </h6>
+					<br />
+			@Html.RadioButton(names[index], "B", new { @class = "form-check-input"}) <h6>@item.OptionB</h6>
+					<br />
+			@Html.RadioButton(names[index], "C", new { @class = "form-check-input"}) <h6>@item.OptionC</h6>
+					<br />
+			@Html.RadioButton(names[index], "D", new { @class = "form-check-input"}) <h6>@item.OptionD</h6>
+				</div>
+		index++;
+	}
+		<input class="btn btn-primary" type="submit" value="submit" />
+}

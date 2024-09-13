@@ -1,0 +1,16 @@
+﻿@model Feedback
+@using MCQApplication.Models;
+
+<form class="mt-5 border p-5 rounded w-50 m-auto" method="post">
+    <div class="mb-3">
+        <label asp-for="Review" class="form-label">Give your Feedback</label>
+        <input asp-for="Review" type="text" class="form-control" placeholder="Love it!!">
+    </div>
+    <div class="mb-3">
+        <label asp-for="ID" class="form-label">Your ID</label>
+        <input asp-for="ID" type="text" class="form-control" readonly value="@CurrentUser.Username">
+    </div>
+    <div class="text-end">
+        <input type="submit" class='btn btn-primary mt-2' value="Submit" />
+    </div>
+</form>

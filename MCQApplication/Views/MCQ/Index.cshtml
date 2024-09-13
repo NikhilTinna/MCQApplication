@@ -1,0 +1,27 @@
+﻿@model MCQApplication.Models.PortIORterminal
+
+@using (Html.BeginForm())
+{
+    <label class="col-sm-2 col-form-label">UID</label>
+    <p>@Html.TextBoxFor(x => Model.Uid, new {@class = "form-control", placeholder="Enter your UID"})</p>
+    <p>
+        <label class="col-sm-2 col-form-label">Year</label>
+        @Html.DropDownListFor(x => Model.Year, new[] {
+    new SelectListItem(){Text="first year", Value ="1"},
+    new SelectListItem(){Text="second year", Value ="2"},
+    },"Select Year", new {@class = "form-control"})
+
+    </p>
+    <p>
+        <label class="col-sm-2 col-form-label">Course</label>
+        @Html.DropDownListFor(x => Model.Course, new[] {
+    new SelectListItem(){Text="BSCIT", Value ="IT"},
+    new SelectListItem(){Text="BBA", Value ="BBA"},
+    },"Select Course", new {@class = "form-control"})
+    </p>
+    @if (TempData["RequiredError"] != null)
+    {
+        <p class="text-danger">@TempData["RequiredError"]</p>
+    }
+    <input type="submit" value="Submit" class="btn btn-primary" />
+}
